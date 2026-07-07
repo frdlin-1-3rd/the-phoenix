@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE PHOENIX — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Noto+Serif+JP:wght@200;300&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-contact">
+
+<!-- HEADER -->
+<header class="header">
+  <a class="header-logo" href="index.html"><img src="assets/img/logo.svg" alt="THE PHOENIX"></a>
+  <nav class="header-nav" id="header-nav">
+    <a href="company.html">Company</a>
+    <a href="service.html">Service</a>
+    <a href="works.html">Works</a>
+    <a class="nav-cta" href="contact.html">Contact</a>
+    <a href="recruit.html">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="メニュー" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb">
+    <a href="index.html">Top</a>
+    <span>—</span>
+    Contact
+  </p>
+  <div class="page-hero-photo">
+    <img src="assets/img/img2.webp" alt="Contact">
+  </div>
+  <div class="page-hero-meta">
+    <h1 class="page-hero-title">Contact</h1>
+    <p class="page-hero-desc">
+      当社へのお問い合わせは<br>
+      こちらのフォームより承っております。
+    </p>
+  </div>
+</div>
+
+
+<!-- CONTACT FORM -->
+<section class="contact-section">
+  <form class="contact-form">
+    <p class="form-note">※印は必須項目となります。</p>
+
+    <div class="form-fields">
+      <div class="form-row">
+        <label class="form-label" for="f-company">会社名 <span class="required">※</span></label>
+        <input class="form-input" type="text" id="f-company" name="company" placeholder="株式会社◯◯" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-name">お名前 <span class="required">※</span></label>
+        <input class="form-input" type="text" id="f-name" name="name" placeholder="山田　太郎" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-kana">ふりがな <span class="required">※</span></label>
+        <input class="form-input" type="text" id="f-kana" name="kana" placeholder="やまだ　たろう" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-email">メールアドレス <span class="required">※</span></label>
+        <input class="form-input" type="email" id="f-email" name="email" placeholder="sample@email.com" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-dept">部署名 <span class="required">※</span></label>
+        <input class="form-input" type="text" id="f-dept" name="dept" placeholder="営業部" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-tel">電話番号 <span class="required">※</span></label>
+        <input class="form-input" type="tel" id="f-tel" name="tel" placeholder="080-1234-5678" required>
+      </div>
+
+      <div class="form-row">
+        <p class="form-label">お問い合わせの種類 <span class="required">※</span></p>
+        <div class="form-radio-group">
+          <label class="form-radio"><input type="radio" name="type" value="人材紹介、派遣のご相談" required>人材紹介、派遣のご相談</label>
+          <label class="form-radio"><input type="radio" name="type" value="採用について">採用について</label>
+          <label class="form-radio"><input type="radio" name="type" value="その他のご相談">その他のご相談</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="f-message">お問い合わせ内容 <span class="required">※</span></label>
+        <textarea class="form-textarea" id="f-message" name="message" placeholder="お問い合わせ内容を入力してください" required></textarea>
+      </div>
+    </div>
+
+    <label class="form-agree">
+      <input type="checkbox" required>
+      <span><a href="#">プライバシーポリシー</a>に同意して送信する</span>
+    </label>
+
+    <button class="form-submit" type="submit">この内容で送信する</button>
+  </form>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-cta">
+    <div class="footer-cta-grid">
+      <div class="footer-map">
+        <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E4%B8%8A%E5%8E%9F2-22-5&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="THE PHOENIX 所在地"></iframe>
+      </div>
+      <div class="footer-cta-cards">
+        <a class="footer-cta-card" href="contact.html">
+          <div class="footer-cta-card-text">
+            <span class="footer-cta-card-title">CONTACT</span>
+            <span class="footer-cta-card-sub">お問い合わせはこちらから</span>
+          </div>
+          <span class="footer-cta-card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="footer-cta-card" href="recruit.html">
+          <div class="footer-cta-card-text">
+            <span class="footer-cta-card-title">RECRUIT</span>
+            <span class="footer-cta-card-sub">採用情報はこちらから</span>
+          </div>
+          <span class="footer-cta-card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="company.html">Company</a>
+      <a href="service.html">Service</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html">Contact</a>
+      <a href="recruit.html">Recruit</a>
+    </nav>
+
+    <div class="footer-logo">
+      <img src="assets/img/logo.svg" alt="THE PHOENIX">
+    </div>
+
+    <div class="footer-bottom">
+      <a class="footer-policy" href="#">Privacy Policy</a>
+      <p class="footer-copyright">©2024 株式会社THE PHOENIX</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

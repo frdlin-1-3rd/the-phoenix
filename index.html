@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE PHOENIX — Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Noto+Serif+JP:wght@200;300&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-index">
+
+<!-- HEADER -->
+<header class="header">
+  <a class="header-logo" href="index.html"><img src="assets/img/logo.svg" alt="THE PHOENIX"></a>
+  <nav class="header-nav" id="header-nav">
+    <a href="company.html">Company</a>
+    <a href="service.html">Service</a>
+    <a href="works.html">Works</a>
+    <a class="nav-cta" href="contact.html">Contact</a>
+    <a href="recruit.html">Recruit</a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="メニュー" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+
+<!-- HERO：1枚の全幅写真 -->
+<section class="hero">
+  <img id="hero-img" src="assets/img/img2.webp" alt="THE PHOENIX">
+  <div class="hero-overlay"></div>
+
+  <!-- 中央 Logo -->
+  <div class="hero-logo">
+    <img src="assets/img/logo.svg" alt="THE PHOENIX" class="hero-logo-img">
+  </div>
+
+  <!-- 左下 tagline -->
+  <div class="hero-content">
+    <h1 class="hero-title">
+      デザインと機能を融合させた<br>
+      精緻な空間を設計・施工
+    </h1>
+  </div>
+
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-inner">
+    <!-- 左：大タイトル -->
+    <div>
+      <h2 class="mission-title">our<br>mission</h2>
+    </div>
+
+    <!-- 右：縦書き＋本文 -->
+    <div class="mission-right">
+      <p class="mission-jp-title">ライフスタイルやビジネスに寄り添った、個性豊かな空間づくり</p>
+      <p class="mission-body-text">
+        お客様のライフスタイルやビジネスに寄り添った、個性豊かな空間づくりを大切にします。素材の選定からデザイン・施工まで、一貫して高い品質を保ち、細部にわたる丁寧な作業を行います。
+      </p>
+    </div>
+  </div>
+
+  <!-- STATS（別セクションに移動） -->
+  <div class="stats-placeholder"></div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats">
+    <div class="stats-grid">
+      <!-- 不動産投資開発：ビル群 -->
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="18" width="12" height="22"/>
+          <rect x="16" y="10" width="12" height="30"/>
+          <rect x="28" y="14" width="12" height="26"/>
+          <line x1="4" y1="40" x2="40" y2="40"/>
+          <line x1="20" y1="14" x2="20" y2="10"/>
+          <rect x="19" y="22" width="4" height="4" stroke-width="0.9"/>
+          <rect x="19" y="30" width="4" height="4" stroke-width="0.9"/>
+          <rect x="7"  y="25" width="3" height="3" stroke-width="0.9"/>
+          <rect x="31" y="21" width="3" height="3" stroke-width="0.9"/>
+          <rect x="31" y="29" width="3" height="3" stroke-width="0.9"/>
+        </svg>
+        <p class="stat-category">不動産投資開発 毎年</p>
+        <p class="stat-number">4〜5</p>
+        <p class="stat-unit">件</p>
+      </div>
+
+      <!-- 投資報酬率：右肩上がりグラフ -->
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4,40 4,4"/>
+          <polyline points="4,40 40,40"/>
+          <polyline points="6,34 14,26 22,20 32,12"/>
+          <polyline points="28,10 33,10 33,15"/>
+          <circle cx="14" cy="26" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="22" cy="20" r="1.5" fill="currentColor" stroke="none"/>
+          <circle cx="32" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <p class="stat-category">10年間 投資報酬率約</p>
+        <p class="stat-number">20</p>
+        <p class="stat-unit">%以上</p>
+      </div>
+
+      <!-- 売買・管理実績：家＋鍵 -->
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4,22 22,6 40,22"/>
+          <polyline points="8,20 8,38 26,38 26,28 18,28 18,38"/>
+          <rect x="29" y="24" width="11" height="8" rx="4"/>
+          <circle cx="33" cy="28" r="1.5" fill="currentColor" stroke="none"/>
+          <line x1="37" y1="28" x2="40" y2="28"/>
+          <line x1="40" y1="26" x2="40" y2="30"/>
+        </svg>
+        <p class="stat-category">不動産売買・管理実績（20 年以上）</p>
+        <p class="stat-number">300</p>
+        <p class="stat-unit">件以上の取引</p>
+      </div>
+
+      <!-- 建築・内装：コンパス＋定規 -->
+      <div class="stat-item">
+        <svg class="stat-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="6" y1="38" x2="38" y2="6"/>
+          <line x1="6" y1="34" x2="10" y2="38"/>
+          <line x1="14" y1="30" x2="18" y2="34"/>
+          <line x1="22" y1="22" x2="26" y2="26"/>
+          <line x1="30" y1="14" x2="34" y2="18"/>
+          <path d="M20,8 L22,6 L36,20 L34,22 Z"/>
+          <circle cx="28" cy="14" r="3"/>
+          <line x1="4" y1="38" x2="40" y2="38" stroke-width="0.7" opacity="0.5"/>
+          <line x1="4" y1="38" x2="4"  y2="4"  stroke-width="0.7" opacity="0.5"/>
+        </svg>
+        <p class="stat-category">建築・内装 施工実績</p>
+        <p class="stat-number">60</p>
+        <p class="stat-unit">件以上</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MESSAGE -->
+<section class="message">
+  <div class="message-img">
+    <img src="assets/img/msg-photo.webp" alt="THE PHOENIX">
+  </div>
+  <div class="message-content">
+    <p class="eyebrow">Message</p>
+    <div class="message-text">
+      <p>私たちTHE PHOENIXは、お客様の夢や理想の空間を形にするお手伝いをしております。一級建築士が在籍し、デザイン性と機能性を兼ね備えたご提案を行うことができるのが、私たちの強みです。</p>
+      <p>また、自社の職人が一貫して工事を行うことで、細部にまでこだわった高品質な仕上がりを実現しています。</p>
+      <p>空間は人々の生活や仕事の質に大きな影響を与えます。その空間をより美しく、快適で、機能的なものに仕上げることで、皆様の日々の暮らしに価値を提供したいと考えています。</p>
+      <p>【心地よい空間は、人を幸せにする】という信念のもと、ご満足いただける空間づくりに取り組むことで、地域や社会に貢献してまいります。</p>
+    </div>
+    <p class="message-author">取締役会長　蘇 乾聞</p>
+  </div>
+</section>
+
+
+<!-- SERVICE -->
+<section class="service">
+  <div class="service-photos">
+    <div class="service-photo">
+      <img src="assets/img/service01.webp" alt="">
+      <div class="service-photo-text">
+        <span class="service-photo-num">01</span>
+        <p class="service-photo-title">都内収益商業ビルの建築</p>
+        <p class="service-photo-desc">一級建築士によるデザインと機能性、高品質施工で投資価値の高い空間を実現します。お客様のビジネスに寄り添い、効率的で魅力的な空間を提供します。</p>
+      </div>
+    </div>
+    <div class="service-photo">
+      <img src="assets/img/service02.webp" alt="">
+      <div class="service-photo-text">
+        <span class="service-photo-num">02</span>
+        <p class="service-photo-title">リゾート開発</p>
+        <p class="service-photo-desc">リゾート地でのホテル開発や商業施設計画を手掛け、自然環境に調和したラグジュアリー空間を提供。訪れる方々に特別な体験を提供します。</p>
+      </div>
+    </div>
+    <div class="service-photo">
+      <img src="assets/img/service03.webp" alt="">
+      <div class="service-photo-text">
+        <span class="service-photo-num">03</span>
+        <p class="service-photo-title">大規模修繕工事</p>
+        <p class="service-photo-desc">商業施設や集合住宅の大規模改修工事を通じて、資産価値を向上させます。耐久性とデザイン性を強化し、次世代にも受け継がれる空間を創造します。</p>
+      </div>
+    </div>
+    <div class="service-photo">
+      <img src="assets/img/service04.webp" alt="">
+      <div class="service-photo-text">
+        <span class="service-photo-num">04</span>
+        <p class="service-photo-title">内装工事</p>
+        <p class="service-photo-desc">オフィス、店舗、住宅の内装工事を専門に、デザインから施工まで一貫して対応。一級建築士と自社職人が連携し、機能性と美しさを兼ね備えた空間を提供します。</p>
+      </div>
+    </div>
+    <div class="service-photo">
+      <img src="assets/img/service05.webp" alt="">
+      <div class="service-photo-text">
+        <span class="service-photo-num">05</span>
+        <p class="service-photo-title">原状回復工事</p>
+        <p class="service-photo-desc">賃貸物件や商業施設の退去時に必要な原状回復工事を迅速に対応。自社職人による高品質な施工で、次の利用者へのスムーズな引き渡しを実現します。</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- RECRUIT -->
+<section class="recruit">
+  <div class="recruit-card">
+    <p class="recruit-card-title">採用 / RECRUIT</p>
+    <p class="recruit-card-text">
+      THE PHOENIXは一緒に働いてくださる方を募集しています。<br>
+      建築・内装工事のプロフェッショナルとして、共に成長しませんか。<br>
+      ご不安なことがあれば、どうぞお気軽にご相談ください。
+    </p>
+    <a class="recruit-card-btn" href="#">採用情報を見る</a>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-cta">
+    <div class="footer-cta-grid">
+      <div class="footer-map">
+        <iframe src="https://www.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%B8%8B%E8%B0%B7%E5%8C%BA%E4%B8%8A%E5%8E%9F2-22-5&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="THE PHOENIX 所在地"></iframe>
+      </div>
+      <div class="footer-cta-cards">
+        <a class="footer-cta-card" href="contact.html">
+          <div class="footer-cta-card-text">
+            <span class="footer-cta-card-title">CONTACT</span>
+            <span class="footer-cta-card-sub">お問い合わせはこちらから</span>
+          </div>
+          <span class="footer-cta-card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+        <a class="footer-cta-card" href="recruit.html">
+          <div class="footer-cta-card-text">
+            <span class="footer-cta-card-title">RECRUIT</span>
+            <span class="footer-cta-card-sub">採用情報はこちらから</span>
+          </div>
+          <span class="footer-cta-card-arrow">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-main">
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="company.html">Company</a>
+      <a href="service.html">Service</a>
+      <a href="works.html">Works</a>
+      <a href="contact.html">Contact</a>
+      <a href="recruit.html">Recruit</a>
+    </nav>
+
+    <div class="footer-logo">
+      <img src="assets/img/logo.svg" alt="THE PHOENIX">
+    </div>
+
+    <div class="footer-bottom">
+      <a class="footer-policy" href="#">Privacy Policy</a>
+      <p class="footer-copyright">©2024 株式会社THE PHOENIX</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

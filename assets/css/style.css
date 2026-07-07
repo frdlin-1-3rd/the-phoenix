@@ -1,0 +1,3231 @@
+/* THE PHOENIX — 全站共用樣式表
+   由六頁各自的內嵌 <style> 合併而成（2026-07-08） */
+
+/* ============================================================
+   PAGE: INDEX (Home)
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+      opacity: 1;
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── HERO ─── */
+    @keyframes heroZoom {
+      from { transform: scale(1.08) translateY(0px); }
+      to   { transform: scale(1)    translateY(0px); }
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 110%;   /* 多出 10% 供 parallax 移動 */
+      top: -5%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      filter: brightness(1.08) contrast(0.96) saturate(1.05);
+      animation: heroZoom 10s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(20,18,16,0.28) 0%, transparent 35%),
+        linear-gradient(to top,    rgba(20,18,16,0.55) 0%, transparent 55%);
+    }
+
+    /* ── 中央 Logo ── */
+    .hero-logo {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .hero-logo-img {
+      width: clamp(90px, 9vw, 130px);
+      opacity: 0.88;
+      filter: drop-shadow(0 2px 16px rgba(0,0,0,0.3));
+    }
+
+    /* ── 左下 tagline ── */
+    .hero-content {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 2.2vw, 32px);
+      font-weight: 200;
+      color: rgba(255,255,255,0.85);
+      line-height: 2;
+      letter-spacing: 0.06em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .hero-scroll span {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+    }
+
+
+    /* ─── MISSION ─── */
+    .mission {
+      background: #d6d6cf;
+      padding: 120px 48px 80px;
+    }
+
+    .mission-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 80px;
+    }
+
+    .mission-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(48px, 6.4vw, 90px);
+      font-weight: 200;
+      color: var(--graphite);
+      letter-spacing: -0.01em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .mission-right {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-bottom: 8px;
+    }
+
+    .mission-jp-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 1.6vw, 22px);
+      font-weight: 200;
+      color: var(--graphite);
+      line-height: 2;
+      letter-spacing: 0.08em;
+      opacity: 1;
+    }
+
+    .mission-body-text {
+      font-size: 16.5px;
+      line-height: 2.4;
+      color: var(--graphite);
+      opacity: 1;
+    }
+
+
+    /* ─── STATS ─── */
+    .stats-section {
+      background: rgba(242, 241, 233, 0.88);
+      padding: 100px 0;
+    }
+
+    .stats {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 48px 32px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-icon {
+      display: block;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      color: var(--graphite);
+      opacity: 0.35;
+    }
+
+    .stat-category {
+      font-size: 16px;
+      color: var(--graphite);
+      opacity: 1;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .stat-number {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(42px, 4.6vw, 64px);
+      font-weight: 200;
+      color: var(--graphite);
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+
+    .stat-unit {
+      font-size: 15px;
+      color: var(--graphite);
+      opacity: 1;
+      margin-top: 8px;
+    }
+
+
+    /* ─── MESSAGE ─── */
+    .message {
+      background: var(--stone);
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      padding: 200px 0;
+    }
+
+    .message-img {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .message-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .message-content {
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .message-content .eyebrow {
+      font-size: clamp(28px, 3.5vw, 52px);
+      letter-spacing: 0.2em;
+      margin-bottom: 48px;
+    }
+
+    .eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--clay);
+      opacity: 0.5;
+    }
+
+    .message-text p {
+      font-size: 15px;
+      line-height: 2.6;
+      color: var(--graphite);
+      opacity: 1;
+      margin-bottom: 18px;
+    }
+
+    .message-author {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: clamp(14px, 1.1vw, 17px);
+      color: var(--graphite);
+      opacity: 1;
+      letter-spacing: 0.1em;
+    }
+
+
+    /* ─── SERVICE ─── */
+    .service {
+      background: var(--graphite);
+    }
+
+    .service-photos {
+      display: flex;
+      height: 580px;
+      gap: 1px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .service-photo {
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 20vw;
+      transition: flex-basis 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+    .service-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.62);
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .service-photo:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.50);
+    }
+
+    .service-photo-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 30px;
+      background: linear-gradient(to top, rgba(20,18,16,0.72) 0%, transparent 100%);
+      z-index: 5;
+    }
+
+    .service-photo-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.4em;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .service-photo-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(15px, 1.3vw, 20px);
+      font-weight: 200;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .service-photo-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.52);
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .service-photo:hover .service-photo-desc {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-list-wrap {
+      padding: 0;
+    }
+
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+    }
+
+
+    .service-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      letter-spacing: 0.4em;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .service-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 200;
+      color: rgba(242,241,233,0.80);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 15.5px;
+      line-height: 2.1;
+      color: rgba(242,241,233,0.32);
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-top: 20px;
+    }
+
+    .service-viewmore {
+      padding: 36px 48px 48px;
+      text-align: right;
+    }
+
+    .service-viewmore a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(242,241,233,0.38);
+      border-bottom: 1px solid rgba(242,241,233,0.15);
+      padding-bottom: 2px;
+    }
+
+
+    /* ─── RECRUIT ─── */
+    .recruit {
+      background: var(--milk);
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+
+    .recruit-big-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(72px, 10vw, 148px);
+      font-weight: 600;
+      color: var(--graphite);
+      line-height: 1;
+      letter-spacing: 0.02em;
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .recruit-card {
+      position: relative;
+      z-index: 2;
+      background: #E6E4DC;
+      margin: 0 auto;
+      width: 70vw;
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+
+    .recruit-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 1.6vw, 22px);
+      font-weight: 200;
+      color: var(--graphite);
+      letter-spacing: 0.12em;
+    }
+
+    .recruit-card-text {
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--graphite);
+      opacity: 1;
+      max-width: 480px;
+    }
+
+    .recruit-card-btn {
+      display: inline-block;
+      background: var(--graphite);
+      color: var(--milk);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      padding: 14px 48px;
+      margin-top: 4px;
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE: COMPANY
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .breadcrumb {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--graphite);
+      opacity: 0.45;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb span { opacity: 0.5; }
+
+    .page-hero-photo {
+      width: 100%;
+      height: clamp(256px, 35vw, 464px);
+      overflow: hidden;
+    }
+
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .page-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+
+
+    /* ─── CONTENT SECTIONS ─── */
+    .content-section {
+      padding: 100px 6vw;
+      border-top: 1px solid var(--border);
+    }
+
+    .content-section-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 2.4vw, 34px);
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--clay);
+      text-align: center;
+      margin-bottom: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .content-section-label::before,
+    .content-section-label::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--clay);
+      opacity: 0.5;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .content-photo {
+      overflow: hidden;
+    }
+
+    .content-photo img {
+      width: 100%;
+      height: clamp(280px, 36vw, 520px);
+      object-fit: cover;
+      display: block;
+    }
+
+    .content-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .content-category {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--clay);
+    }
+
+    .content-heading {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 200;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      color: var(--graphite);
+    }
+
+    .content-body {
+      font-size: 14px;
+      line-height: 2.4;
+      color: var(--graphite);
+    }
+
+
+    /* ─── ABOUT / 会社概要 ─── */
+    .about-section {
+      padding: 100px 6vw 120px;
+      border-top: 1px solid var(--border);
+      background: var(--stone);
+    }
+
+    .about-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 1.8vw, 26px);
+      font-weight: 200;
+      letter-spacing: 0.12em;
+      text-align: center;
+      margin-bottom: 56px;
+      color: var(--graphite);
+    }
+
+    .about-table {
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid var(--border);
+    }
+
+    .about-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .about-label {
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--graphite);
+    }
+
+    .about-value {
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--graphite);
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE: SERVICE
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .breadcrumb {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--graphite);
+      opacity: 0.45;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb span { opacity: 0.5; }
+
+    .page-hero-photo {
+      width: 100%;
+      height: clamp(256px, 35vw, 464px);
+      overflow: hidden;
+    }
+
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .page-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+
+
+    /* ─── SERVICE LIST ─── */
+    .service-section {
+      padding: 80px 6vw 120px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .service-nav {
+      width: 220px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 120px;
+      padding-right: 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .service-nav-item {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      color: rgba(45,45,43,0.3);
+      transition: color 0.3s ease;
+    }
+
+    .service-nav-item:first-child { border-top: 1px solid var(--border); }
+    .service-nav-item.active { color: var(--graphite); }
+
+    .service-nav-item .bullet {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--clay);
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .service-nav-item.active .bullet { opacity: 1; }
+
+    .service-nav-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+    }
+
+    .service-nav-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 200;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+
+    .service-main {
+      flex: 1;
+      padding-left: 72px;
+    }
+
+
+    .service-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .service-item-text {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .service-item-num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--graphite);
+      opacity: 0.4;
+    }
+
+    .service-item-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 2vw, 28px);
+      font-weight: 200;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+    }
+
+    .service-item-desc {
+      font-size: 15px;
+      line-height: 2.4;
+      color: var(--graphite);
+    }
+
+    .service-item-links {
+      margin-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .service-item-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--graphite);
+      transition: opacity 0.2s ease;
+    }
+
+    .service-item-link:hover { opacity: 0.5; }
+
+    .link-arrow {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .link-arrow svg {
+      width: 12px; height: 12px;
+      fill: none; stroke: var(--milk); stroke-width: 1.5;
+    }
+
+    .service-item-photo { overflow: hidden; }
+
+    .service-item-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── 強み ─── */
+    .service-strengths {
+      grid-column: 1 / -1;
+      background: rgba(242,241,233,0.88);
+      padding: 64px 0;
+      margin-top: 20px;
+    }
+
+    .service-strengths-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--clay);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .service-strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .service-strength-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 0 28px 0 0;
+      border-right: 1px solid var(--border);
+    }
+
+    .service-strength-item:last-child { border-right: none; padding-right: 0; }
+    .service-strength-item:not(:first-child) { padding-left: 28px; }
+
+    .service-strength-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--graphite);
+      opacity: 0.35;
+    }
+
+    .service-strength-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(14px, 1.2vw, 17px);
+      font-weight: 200;
+      line-height: 1.8;
+      letter-spacing: 0.04em;
+      color: var(--graphite);
+    }
+
+    .service-strength-desc {
+      font-size: 14px;
+      line-height: 2.2;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .service-item-section-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--clay);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .service-item-section-label::before,
+    .service-item-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--clay);
+      opacity: 0.45;
+    }
+
+    .service-item-section-body {
+      font-size: 15px;
+      line-height: 2.4;
+      margin-bottom: 32px;
+    }
+
+    .service-item-works {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 8px;
+    }
+
+    .service-item-work {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-item-work:first-child { border-top: 1px solid var(--border); }
+
+    .service-item-work-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .service-item-work-desc {
+      font-size: 14px;
+      line-height: 2.2;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE: WORKS
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .breadcrumb {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--graphite);
+      opacity: 0.45;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb span { opacity: 0.5; }
+
+    .page-hero-photo {
+      width: 100%;
+      height: clamp(256px, 35vw, 464px);
+      overflow: hidden;
+    }
+
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .page-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+
+
+    /* ─── WORKS MARQUEE ─── */
+    .works-section {
+      padding: 80px 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .works-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 2.4vw, 34px);
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--clay);
+      text-align: center;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .works-label::before,
+    .works-label::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--clay);
+      opacity: 0.5;
+    }
+
+    .works-marquee-wrap {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .works-marquee-track {
+      display: flex;
+      gap: 1px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .works-photo {
+      height: 520px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .works-photo img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .works-photo-placeholder {
+      height: 100%;
+      background: var(--stone);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .works-photo-caption {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      color: var(--graphite);
+      opacity: 0.5;
+      line-height: 1.8;
+    }
+
+    /* ─── WORKS CONTROL BAR ─── */
+    .works-control {
+      margin-top: 0px;
+      padding: 24px 6vw 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .works-control-caption {
+      font-size: 14px;
+      color: var(--graphite);
+      opacity: 0.6;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .works-control-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .works-control-count {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      color: var(--graphite);
+      opacity: 0.45;
+    }
+
+    .works-control-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .works-control-btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--graphite);
+      transition: stroke 0.25s ease;
+    }
+
+    .works-control-btn:hover {
+      background: var(--graphite);
+      border-color: var(--graphite);
+    }
+
+    .works-control-btn:hover svg {
+      stroke: var(--milk);
+    }
+
+    /* ─── INSTAGRAM CTA ─── */
+    .instagram-cta {
+      background: var(--milk);
+      padding: 100px 0 120px;
+      border-top: 1px solid var(--border);
+    }
+
+    .instagram-card {
+      background: #E6E4DC;
+      margin: 0 auto;
+      width: 50vw;
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 28px;
+    }
+
+    .instagram-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(17px, 1.6vw, 22px);
+      font-weight: 200;
+      color: var(--graphite);
+      letter-spacing: 0.12em;
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    .instagram-card-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 32px;
+      height: 1px;
+      background: var(--clay);
+    }
+
+    .instagram-qr-link {
+      display: inline-block;
+      line-height: 0;
+    }
+
+    .instagram-qr {
+      width: 160px;
+      height: 160px;
+      display: block;
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE: CONTACT
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .breadcrumb {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--graphite);
+      opacity: 0.45;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb span { opacity: 0.5; }
+
+    .page-hero-photo {
+      width: 100%;
+      height: clamp(256px, 35vw, 464px);
+      overflow: hidden;
+    }
+
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .page-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+
+
+    /* ─── CONTACT FORM ─── */
+    .contact-section {
+      padding: 100px 6vw 120px;
+      border-top: 1px solid var(--border);
+      background: var(--stone);
+    }
+
+    .contact-form {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-lead {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 1.6vw, 20px);
+      font-weight: 200;
+      letter-spacing: 0.08em;
+      line-height: 2;
+      color: var(--graphite);
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--graphite);
+      opacity: 0.5;
+      text-align: right;
+      margin-bottom: 24px;
+    }
+
+    .form-fields {
+      border-top: 1px solid var(--border);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .form-label {
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--graphite);
+      padding-top: 13px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .form-label .required {
+      color: var(--clay);
+      font-size: 12px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: 15px;
+      color: var(--graphite);
+      background: var(--milk);
+      border: 1px solid var(--border);
+      padding: 14px 18px;
+      line-height: 1.6;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(45,45,43,0.35);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--clay);
+    }
+
+    .form-textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 11px;
+    }
+
+    .form-radio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--graphite);
+      cursor: pointer;
+    }
+
+    .form-radio input {
+      accent-color: var(--clay);
+      width: 16px;
+      height: 16px;
+    }
+
+    .form-agree {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 48px;
+      font-size: 14px;
+      color: var(--graphite);
+      cursor: pointer;
+    }
+
+    .form-agree input {
+      accent-color: var(--clay);
+      width: 16px;
+      height: 16px;
+    }
+
+    .form-agree a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .form-submit {
+      display: block;
+      margin: 32px auto 0;
+      background: var(--graphite);
+      color: var(--milk);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      padding: 16px 56px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.25s ease;
+    }
+
+    .form-submit:hover {
+      opacity: 0.8;
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE: RECRUIT
+   ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --milk:     #F2F1E9;
+      --stone:    #E6E2D8;
+      --clay:     #B17457;
+      --graphite: #2D2D2B;
+      --border:   rgba(45,45,43,0.10);
+    }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      background: var(--milk);
+      color: var(--graphite);
+      line-height: 1.9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+
+    /* ─── HEADER ─── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(242,241,233,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 64px;
+      width: auto;
+      filter: invert(1);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--graphite);
+    }
+
+    .header-nav .nav-cta {
+      background: var(--graphite);
+      color: var(--milk);
+      padding: 9px 22px;
+    }
+
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding-top: 160px;
+      padding-bottom: 80px;
+      padding-left: 6vw;
+      padding-right: 6vw;
+    }
+
+    .breadcrumb {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--graphite);
+      opacity: 0.45;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb span { opacity: 0.5; }
+
+    .page-hero-photo {
+      width: 100%;
+      height: clamp(256px, 35vw, 464px);
+      overflow: hidden;
+    }
+
+    .page-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .page-hero-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 40px;
+      margin-top: 48px;
+    }
+
+    .page-hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(28px, 3.5vw, 52px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+
+
+    /* ─── RECRUIT CONTENT ─── */
+    .recruit-section {
+      padding: 100px 6vw 120px;
+      border-top: 1px solid var(--border);
+      background: var(--stone);
+    }
+
+    .recruit-note {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      text-align: center;
+      font-size: 15px;
+      color: var(--graphite);
+      opacity: 0.6;
+    }
+
+    .recruit-note a {
+      color: var(--clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .job-block {
+      max-width: 900px;
+      margin: 0 auto 80px;
+    }
+
+    .job-block:last-of-type {
+      margin-bottom: 56px;
+    }
+
+    .job-number {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--clay);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(19px, 2vw, 26px);
+      font-weight: 200;
+      letter-spacing: 0.06em;
+      color: var(--graphite);
+      padding-bottom: 24px;
+    }
+
+    .job-table {
+      border-top: 1px solid var(--border);
+    }
+
+    .job-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .job-label {
+      font-size: 15px;
+      letter-spacing: 0.06em;
+      color: var(--graphite);
+    }
+
+    .job-value {
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--graphite);
+    }
+
+    .job-value a {
+      color: var(--clay);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .recruit-entry-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .recruit-entry-btn {
+      display: inline-block;
+      background: var(--graphite);
+      color: var(--milk);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      padding: 16px 56px;
+      transition: opacity 0.25s ease;
+    }
+
+    .recruit-entry-btn:hover {
+      opacity: 0.8;
+    }
+
+
+    /* ─── FOOTER ─── */
+    .footer-cta {
+      background: var(--graphite);
+      padding: 100px 6vw 0;
+    }
+
+    .footer-cta-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .footer-map {
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .footer-map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+
+    .footer-cta-cards {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-cta-card {
+      flex: 1;
+      background: #E6E4DC;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.25s ease;
+    }
+
+    .footer-cta-card:hover {
+      opacity: 0.85;
+    }
+
+    .footer-cta-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-cta-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+
+    .footer-cta-card-sub {
+      font-size: 13px;
+      color: var(--graphite);
+      opacity: 0.7;
+    }
+
+    .footer-cta-card-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--graphite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-cta-card-arrow svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: var(--milk);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .footer-main {
+      background: var(--graphite);
+      padding: 80px 6vw 40px;
+      text-align: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer-nav a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.8;
+    }
+
+    .footer-nav a:hover {
+      opacity: 1;
+    }
+
+    .footer-logo img {
+      height: 56px;
+      width: auto;
+    }
+
+    .footer-bottom {
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(242,241,233,0.12);
+    }
+
+    .footer-policy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--milk);
+      opacity: 0.7;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: var(--milk);
+      opacity: 0.45;
+      letter-spacing: 0.04em;
+    }
+
+/* ============================================================
+   PAGE-SCOPED OVERRIDES
+   同名 class 在不同頁面有不同樣式，用 body class 區隔避免互相覆蓋
+   ============================================================ */
+.page-index .service-item {
+  padding: 36px 24px;
+  background: rgba(255,255,255,0.025);
+}
+.page-service .service-item {
+  scroll-margin-top: 130px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 56px;
+  align-items: start;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 100px;
+}
+
+.page-hero-desc {
+  font-size: 14px;
+  line-height: 2.3;
+  color: var(--graphite);
+  padding-top: 8px;
+}
+.page-service .page-hero-desc,
+.page-works .page-hero-desc {
+  font-size: 15px;
+}
+
+/* ============================================================
+   RESPONSIVE — 斷點 990px（2026-07-08 起逐頁加入）
+   ============================================================ */
+
+/* 漢堡選單按鈕：預設（桌面）隱藏 */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--graphite);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 990px) {
+
+  /* ── 全站共用：Header / 漢堡選單 ── */
+  .header {
+    padding: 0 24px;
+  }
+
+  .header-logo img {
+    height: 48px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .header-nav {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    height: calc(100vh - 100px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    padding: 48px 24px;
+    background: var(--milk);
+    overflow-y: auto;
+  }
+
+  .header-nav.open {
+    display: flex;
+  }
+
+  .header-nav .nav-cta {
+    padding: 12px 32px;
+  }
+
+  /* ── 全站共用：Footer ── */
+  .footer-cta {
+    padding: 64px 24px 0;
+  }
+
+  .footer-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-map {
+    height: 260px;
+  }
+
+  .footer-cta-cards {
+    height: auto;
+  }
+
+  .footer-cta-card {
+    padding: 24px;
+  }
+
+  .footer-main {
+    padding: 56px 24px 32px;
+  }
+
+  .footer-nav {
+    gap: 20px 28px;
+    margin-bottom: 40px;
+  }
+
+  /* ── INDEX ── */
+  .hero-content {
+    padding: 0 24px;
+  }
+
+  .mission {
+    padding: 72px 24px 48px;
+  }
+
+  .mission-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-bottom: 48px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat-item:nth-child(2n) {
+    border-left: 1px solid var(--border);
+  }
+
+  .stat-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .message {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .message-img {
+    height: 650px;
+  }
+
+  .message-content {
+    padding: 56px 24px;
+  }
+
+  .service-photos {
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .service-photo {
+    flex: 0 0 calc(50% - 0.5px);
+    height: 280px;
+  }
+
+  .service-photo:first-child {
+    flex: 0 0 100%;
+  }
+
+  .recruit {
+    padding: 64px 0;
+  }
+
+  .recruit-big-title {
+    display: none;
+  }
+
+  .recruit-card {
+    width: auto;
+    margin: 0 24px;
+    padding: 40px 24px;
+  }
+
+  /* ── SERVICE ── */
+  .service-section {
+    padding: 56px 24px 80px;
+  }
+
+  .service-nav {
+    width: 120px;
+    padding-right: 16px;
+  }
+
+  .service-nav-title {
+    font-size: 12px;
+  }
+
+  .service-main {
+    padding-left: 24px;
+    min-width: 0;
+  }
+
+  .page-service .service-item {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 0;
+  }
+
+  .service-item-text {
+    min-width: 0;
+  }
+
+  .service-item-photo {
+    order: -1;
+  }
+
+  .service-item-photo img {
+    aspect-ratio: 5 / 3;
+  }
+
+  .service-strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — 斷點 768px（2026-07-08 起逐頁加入）
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* ── INDEX ── */
+  .service-photo {
+    flex: 0 0 100%;
+  }
+
+  /* ── COMPANY / SERVICE / WORKS / CONTACT / RECRUIT（共用，首頁沒有此元素） ── */
+  .page-hero-meta {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* ── COMPANY ── */
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* ── SERVICE ── */
+  .service-section {
+    flex-direction: column;
+  }
+
+  .service-nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 20px;
+    margin-bottom: 32px;
+  }
+
+  .service-nav-item {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .service-nav-item:first-child {
+    border-top: none;
+  }
+
+  .service-main {
+    padding-left: 0;
+  }
+
+  /* ── WORKS ── */
+  .instagram-card {
+    width: auto;
+    margin: 0 24px;
+  }
+
+  /* ── CONTACT ── */
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* ── RECRUIT ── */
+  .job-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .job-label {
+    font-size: 17px;
+  }
+}
