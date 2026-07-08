@@ -1411,8 +1411,8 @@
 
     .service-strengths-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 56px 0;
     }
 
     .service-strength-item {
@@ -1423,8 +1423,8 @@
       border-right: 1px solid var(--border);
     }
 
-    .service-strength-item:last-child { border-right: none; padding-right: 0; }
-    .service-strength-item:not(:first-child) { padding-left: 28px; }
+    .service-strength-item:nth-child(even) { border-right: none; padding-right: 0; padding-left: 28px; }
+    .service-strength-item:nth-child(odd) { padding-left: 0; }
 
     .service-strength-icon {
       width: 40px;
@@ -3188,10 +3188,6 @@
   .service-item-photo img {
     aspect-ratio: 5 / 3;
   }
-
-  .service-strengths-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* ============================================================
@@ -3244,6 +3240,26 @@
 
   .service-main {
     padding-left: 0;
+  }
+
+  .service-strengths-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-strength-item {
+    padding: 0 0 32px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-strength-item:not(:first-child) {
+    padding-left: 0;
+  }
+
+  .service-strength-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   /* ── WORKS ── */
