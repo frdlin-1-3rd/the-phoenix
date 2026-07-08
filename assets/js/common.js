@@ -20,6 +20,15 @@
   });
 })();
 
+/* ===== 全站共用：Back to top 按鈕（2026-07-08） ===== */
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
 /* ===== INDEX: Hero 圖片 scroll parallax ===== */
 (function () {
   const heroImg = document.getElementById('hero-img');
@@ -30,19 +39,34 @@
   }, { passive: true });
 })();
 
-/* ===== INDEX: Service 縮圖 hover 放大效果 ===== */
+/* ===== INDEX: Service 縮圖 hover 放大效果（僅限桌面寬度，避免 inline style 蓋掉手機版排版） ===== */
 (function () {
   const photos = document.querySelectorAll('.service-photo');
+  const DESKTOP_MIN_WIDTH = 991;
   photos.forEach(photo => {
     photo.addEventListener('mouseenter', () => {
+      if (window.innerWidth < DESKTOP_MIN_WIDTH) return;
       photos.forEach(p => {
         p.style.flexBasis = p === photo ? '24vw' : '19vw';
       });
     });
     photo.addEventListener('mouseleave', () => {
+      if (window.innerWidth < DESKTOP_MIN_WIDTH) return;
       photos.forEach(p => {
         p.style.flexBasis = '20vw';
       });
+    });
+  });
+})();
+
+/* ===== INDEX: Service 縮圖 desc 點擊展開（觸控裝置用，桌面滑鼠 hover 已由 CSS 處理） ===== */
+(function () {
+  const photos = document.querySelectorAll('.service-photo');
+  photos.forEach(photo => {
+    photo.addEventListener('click', () => {
+      const wasActive = photo.classList.contains('active');
+      photos.forEach(p => p.classList.remove('active'));
+      if (!wasActive) photo.classList.add('active');
     });
   });
 })();

@@ -444,12 +444,16 @@
       color: rgba(255,255,255,0.52);
       line-height: 1.8;
       letter-spacing: 0.02em;
+      max-height: 0;
       opacity: 0;
       transform: translateY(10px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
+      overflow: hidden;
+      transition: max-height 1.2s ease-in-out, opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
     }
 
-    .service-photo:hover .service-photo-desc {
+    .service-photo:hover .service-photo-desc,
+    .service-photo.active .service-photo-desc {
+      max-height: 140px;
       opacity: 1;
       transform: translateY(0);
     }
@@ -2940,6 +2944,41 @@
 }
 
 /* ============================================================
+   BACK TO TOP（全站共用，2026-07-08）
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 32px;
+  z-index: 90;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--graphite);
+  border: 1px solid #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--milk);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ============================================================
    RESPONSIVE — 斷點 990px（2026-07-08 起逐頁加入）
    ============================================================ */
 
@@ -3227,5 +3266,38 @@
 
   .job-label {
     font-size: 17px;
+  }
+
+  /* ── COMPANY / SERVICE / WORKS / CONTACT / RECRUIT（共用，首頁沒有此元素） ── */
+  .breadcrumb {
+    display: none;
+  }
+
+  .page-hero-photo {
+    width: calc(100% + 12vw);
+    margin-left: -6vw;
+    margin-right: -6vw;
+  }
+
+  .page-hero {
+    padding-top: 100px;
+  }
+
+  /* ── COMPANY ── */
+  .about-row {
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — 斷點 480px（2026-07-08 起逐頁加入）
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* ── COMPANY / SERVICE / WORKS / CONTACT / RECRUIT（共用，首頁沒有此元素） ── */
+  .page-hero-photo {
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 }
